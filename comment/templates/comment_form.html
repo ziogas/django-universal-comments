@@ -1,0 +1,14 @@
+ {% load i18n %}
+ 
+ {% if err %}
+    <div class="error">{{ err }}</div>
+{% endif %}
+
+<form action="{% url comment-save %}" method="post" class="simple_form">
+	<input type="hidden" name="csrfmiddlewaretoken" value="{% with csrf_token as csrf_token_clean %}{{ csrf_token_clean }}{% endwith %}" />
+	<p style="display:none">
+		<input type="text" name="email_address" />
+	</p>
+	{{ form.as_p }}
+	<p><input type="submit" value="{% trans 'Send' %}" /></p>
+</form>
