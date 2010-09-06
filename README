@@ -1,0 +1,25 @@
+Universal Django Comments
+
+==============
+
+DOWNLOAD
+========
+You could checkout latest version with:
+
+    $ git clone git://github.com/ziogas/Django-Comments.git
+
+
+INSTALL
+=======
+To install comments simply add 'comment' to INSTALLED_APPS in settings.py
+
+To add comment form use templatetag:
+{% comment_form your_custom_object %}
+
+To show comment list use templatetag:
+{% comment_list your_custom_object %}
+
+
+AUTHORS
+=======
+Arminas Žukauskas <ziogas.as@gmail.com>
