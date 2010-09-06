@@ -12,6 +12,7 @@ You could checkout latest version with:
 INSTALL
 =======
 To install comments simply add 'comment' to INSTALLED_APPS in settings.py
+Also for future purposes include (r'^your_custom_url/', include('comment.urls')) in your urls.py
 
 To add comment form use templatetag:
 {% comment_form your_custom_object %}
