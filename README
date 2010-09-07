@@ -11,8 +11,12 @@ You could checkout latest version with:
 
 INSTALL
 =======
-To install comments simply add 'comment' to INSTALLED_APPS in settings.py
-Also for future purposes include (r'^your_custom_url/', include('comment.urls')) in your urls.py
+To install comments:
+
+* Simply add 'comment' to INSTALLED_APPS in settings.py
+* Run syncdb
+* Also for future purposes include (r'^your_custom_url/', include('comment.urls')) in your urls.py
+* Add {% load comments %} to template
 
 To add comment form use templatetag:
 {% comment_form your_custom_object %}
