@@ -29,6 +29,6 @@ def comment_form(context, obj):
 @register.inclusion_tag('comment_list.html')
 def comment_list(obj):
     object_type = ContentType.objects.get_for_model(obj)
-    comments = Comment.objects.filter(content_type__pk=object_type.id, object_id=obj.id)
+    comments = Comment.objects.filter(content_type__pk=object_type.id, object_id=obj.id, status__gt=-1)
     
     return {'comments': comments}
