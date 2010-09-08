@@ -1,6 +1,6 @@
 {% for comment in comments %}
-	<div id="comment_{{ comment.id }}">
-		<a href="#comment_{{ comment.id }}">{{ comment.name }} ({{ comment.created }})</a><br />
-		{{ comment.comment|escape }}<br />
-	</div>
+    <div id="comment_{{ comment.id }}">
+        <a href="#comment_{{ comment.id }}">{{ comment.name }} ({{ comment.created }})</a><br />
+        {{ comment.comment|escape }}<br />
+    </div>
 {% endfor %}

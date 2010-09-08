@@ -1,5 +1,4 @@
 from django.forms import ModelForm
-from django.utils.translation import gettext as _
 from comment.models import Comment
 
 class CommentForm(ModelForm):

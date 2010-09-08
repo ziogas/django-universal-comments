@@ -6,14 +6,13 @@ DOWNLOAD
 ========
 You could checkout latest version with:
 
-    $ git clone git://github.com/ziogas/Django-Comments.git
-
+    $ git clone git://github.com/ziogas/django-universal-comments.git
 
 INSTALL
 =======
 To install comments:
 
-* Simply add 'comment' to INSTALLED_APPS in settings.py
+* Simply copy comment folder to your site root directory and add 'comment' to INSTALLED_APPS in settings.py
 * Run syncdb
 * Also for future purposes include (r'^your_custom_url/', include('comment.urls')) in your urls.py
 * Add {% load comments %} to template
