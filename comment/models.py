@@ -5,10 +5,10 @@ from django.utils.translation import gettext as _
 
 class Comment(models.Model):
     
-    statuses = (
-        ('-1', _('Discarded')),
-        ('0', _('Waiting')),
-        ('1', _('Approved')),
+    STATUSES = (
+        (-1, _('Discarded')),
+        (0, _('Waiting')),
+        (1, _('Approved')),
     )
     
     name = models.CharField(max_length = 100, verbose_name = _('Name'))
@@ -17,7 +17,7 @@ class Comment(models.Model):
     comment = models.TextField(verbose_name = _('Comment'))
     ip = models.IPAddressField(verbose_name = _('IP'))
     created = models.DateTimeField(db_index=True, verbose_name = _('Created'))
-    status = models.IntegerField(choices = statuses, db_index=True, verbose_name = _('Status'))
+    status = models.SmallIntegerField(choices = STATUSES, db_index=True, verbose_name = _('Status'))
     
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()

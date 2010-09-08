@@ -11,22 +11,22 @@ from datetime import datetime
 def save_comment(request):
     
     try:
-    	form = CommentForm(request.POST)
-    	comment = form.save(commit=False)
-    	comment.ip = request.META.get('REMOTE_ADDR', '')
-    	comment.created = datetime.today()
-    	comment.status = 0
-    	comment.save()
+        form = CommentForm(request.POST)
+        comment = form.save(commit=False)
+        comment.ip = request.META.get('REMOTE_ADDR', '')
+        comment.created = datetime.today()
+        comment.status = 0
+        comment.save()
         
     finally:
     
-    	if request.POST.get('ret'):
-    		ret = request.POST.get('ret')
-    	elif request.META.get('HTTP_REFERER'):
-    		ret = request.META.get('HTTP_REFERER')
-    	else:
-    		ret = '/'
+        if request.POST.get('ret'):
+            ret = request.POST.get('ret')
+        elif request.META.get('HTTP_REFERER'):
+            ret = request.META.get('HTTP_REFERER')
+        else:
+            ret = '/'
             
         ret += '?err=1'
             
-    	return HttpResponseRedirect(ret)
+        return HttpResponseRedirect(ret)
