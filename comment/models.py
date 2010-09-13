@@ -24,7 +24,7 @@ class Comment(models.Model):
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     
     def __unicode__(self):
-        return self.name+' ('+self.email+')'
+    return '%s (%s)' % (self.name, self.email)
     
     class Meta:
         verbose_name = _('Comment')
