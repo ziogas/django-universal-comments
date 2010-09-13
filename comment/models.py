@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 
 class Comment(models.Model):
     
-    STATUSES = (
+    STATUS_CHOICES = (
         (-1, _('Discarded')),
         (0, _('Waiting')),
         (1, _('Approved')),
@@ -13,11 +13,11 @@ class Comment(models.Model):
     
     name = models.CharField(max_length = 100, verbose_name = _('Name'))
     email = models.EmailField(verbose_name = _('Email address'))
-    url = models.URLField(verbose_name = _('URL'))
+    url = models.URLField(verbose_name = _('URL'), blank=True)
     comment = models.TextField(verbose_name = _('Comment'))
     ip = models.IPAddressField(verbose_name = _('IP'))
     created = models.DateTimeField(db_index=True, verbose_name = _('Created'))
-    status = models.SmallIntegerField(choices = STATUSES, db_index=True, verbose_name = _('Status'))
+    status = models.SmallIntegerField(choices = STATUS_CHOICES, db_index=True, verbose_name = _('Status'))
     
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()

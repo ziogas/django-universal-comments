@@ -10,6 +10,8 @@ from datetime import datetime
 
 def save_comment(request):
     
+    err = True
+
     try:
         form = CommentForm(request.POST)
         comment = form.save(commit=False)
@@ -17,6 +19,8 @@ def save_comment(request):
         comment.created = datetime.today()
         comment.status = 0
         comment.save()
+
+        err = False
         
     finally:
     
@@ -26,7 +30,8 @@ def save_comment(request):
             ret = request.META.get('HTTP_REFERER')
         else:
             ret = '/'
-            
-        ret += '?err=1'
+       
+        if err:
+            ret += '?err=1'
             
         return HttpResponseRedirect(ret)
