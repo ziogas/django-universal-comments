@@ -70,3 +70,6 @@ msgstr "Komentuoti"
 
 msgid "Private"
 msgstr "Privatus"
+
+msgid "Private comment"
+msgstr "Privatus komentaras"
