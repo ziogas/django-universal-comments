@@ -6,6 +6,7 @@ from django.utils.translation import gettext as _
 class Comment(models.Model):
     
     STATUS_CHOICES = (
+        (-2, _('Private')),
         (-1, _('Discarded')),
         (0, _('Waiting')),
         (1, _('Approved')),

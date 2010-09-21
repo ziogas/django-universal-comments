@@ -10,5 +10,11 @@
         <input type="text" name="email_address" />
     </p>
     {{ form.as_p }}
+    {% if private_comments %}
+        <p>
+            <label for="private_comment">{% trans 'Private comment' %} ?</label>
+            <input type="checkbox" name="private_comment" id="private_comment" value="1" />
+        </p>
+    {% endif %}
     <p><input type="submit" value="{% trans 'Send' %}" /></p>
 </form>

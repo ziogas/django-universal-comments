@@ -2,11 +2,13 @@ DJANGO-UNIVERSAL-COMMENTS
 
 ==============
 
+
 DOWNLOAD
 ========
 You could checkout latest version with:
 
     $ git clone git://github.com/ziogas/django-universal-comments.git
+
 
 INSTALL
 =======
@@ -22,6 +24,15 @@ To add comment form use templatetag:
 
 To show comment list use templatetag:
 {% comment_list your_custom_object %}
+
+
+CONFIGURATION
+=======
+You can configure django-universal-comments application by putting those directives in your settings.py file:
+
+COMMENT_NOTIFICATION_EMAIL = 'your@email.com' #email used to notify you about new comments, if none defined - no notifications will be send
+COMMENT_ALLOW_PRIVATE_COMMENTS = True #if defined and True, user can submit a private comment directly to you. Depends on COMMENT_NOTIFICATION_EMAIL
+COMMENT_SHOW_STATUS_FROM = -1 #if you will set it to '0', application will show only approved comments. Default is -1 (upper than discarded)
 
 
 AUTHORS

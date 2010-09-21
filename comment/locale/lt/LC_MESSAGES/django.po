@@ -67,3 +67,6 @@ msgstr "Siųsti"
 
 msgid "Post"
 msgstr "Komentuoti"
+
+msgid "Private"
+msgstr "Privatus"

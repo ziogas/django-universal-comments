@@ -5,6 +5,7 @@ from comment.form import CommentForm
 from comment.models import Comment
 from django.contrib.contenttypes.models import ContentType, ContentTypeManager
 from django.template import RequestContext
+from django.db import settings
 
 register = template.Library()
 
@@ -24,11 +25,24 @@ def comment_form(context, obj):
 #    else:
     ret = {'form': form}
     
+    try:
+        if settings.COMMENT_ALLOW_PRIVATE_COMMENTS:
+            ret['private_comments'] = True
+    except:
+        pass
+    
     return ret
 
 @register.inclusion_tag('comment_list.html')
 def comment_list(obj):
+    
+    try:
+        if settings.COMMENT_SHOW_STATUS:
+            status = int(settings.COMMENT_SHOW_STATUS)
+    except:
+        status = -1
+        
     object_type = ContentType.objects.get_for_model(obj)
-    comments = Comment.objects.filter(content_type__pk=object_type.id, object_id=obj.id, status__gt=-1)
+    comments = Comment.objects.filter(content_type__pk=object_type.id, object_id=obj.id, status__gt=status)
     
     return {'comments': comments}
