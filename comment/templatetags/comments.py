@@ -37,8 +37,8 @@ def comment_form(context, obj):
 def comment_list(obj):
     
     try:
-        if settings.COMMENT_SHOW_STATUS:
-            status = int(settings.COMMENT_SHOW_STATUS)
+        if settings.COMMENT_SHOW_STATUS_FROM:
+            status = int(settings.COMMENT_SHOW_STATUS_FROM)
     except:
         status = -1
         
